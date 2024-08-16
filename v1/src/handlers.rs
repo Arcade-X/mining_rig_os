@@ -1,5 +1,3 @@
-// src/handlers.rs
-
 use crate::gpu_collector::get_gpu_data;
 
 pub async fn send_gpu_data() -> Result<(), String> {
