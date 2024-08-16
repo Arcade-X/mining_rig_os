@@ -14,7 +14,7 @@ pub async fn listen_for_commands() {
                 handle_command(command).await;
             }
             Some(Err(e)) => {
-                eprintln!("WebSocket error: {:? ?}", e);
+                eprintln!("WebSocket error: {:?}", e);
             }
             _ => {}
         }
@@ -35,7 +35,7 @@ async fn handle_command(command: String) {
         }
         // Add other commands here
         _ => {
-            println!("Unknown command received: { }", command);
+            println!("Unknown command received: {}", command);
         }
     }
 }
