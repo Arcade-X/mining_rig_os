@@ -39,4 +39,4 @@ pub fn get_gpu_data() -> Result<Vec<GpuData>, String> {
     }
 
     Ok(gpus)
-}
+} 
