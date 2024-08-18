@@ -5,7 +5,7 @@ use crate::miner;
 
 pub async fn listen_for_commands() {
     // Set up WebSocket connection to listen for commands
-    let url = Url::parse("ws://localhost:9000").unwrap(); // Change this to your WebSocket server's URL
+    let url = Url::parse("ws://192.168.178.10:8080/ws/").unwrap(); // Replace with your Mac's IP address
     let (mut websocket_conn, _) = connect_async(url).await.expect("Failed to connect to WebSocket");
 
     loop {
