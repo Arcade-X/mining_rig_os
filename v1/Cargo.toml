@@ -12,3 +12,4 @@ dotenv = "0.15"
 tokio-tungstenite = "0.15"  # Add this for WebSocket support
 futures-util = "0.3"       # Add this for futures utilities (StreamExt, SinkExt)
 url = "2.2"                # Add this for URL parsing
+serde_json = "1.0"
