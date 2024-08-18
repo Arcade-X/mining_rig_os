@@ -37,7 +37,7 @@ async fn main() {
 
                 // Adjust the sleep to ensure approximately 1 second between sends
                 let sleep_duration = if elapsed_time < Duration::from_secs(1) {
-                    Duration::from_secs(0.3) - elapsed_time
+                    Duration::from_secs(1/3) - elapsed_time
                 } else {
                     Duration::from_secs(0)
                 };
