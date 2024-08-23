@@ -26,12 +26,12 @@ pub async fn listen_for_commands() -> Option<SplitSink<WebSocketStream<MaybeTlsS
 async fn handle_command(command: String) {
     match command.as_str() {
         "start_ravencoin" => {
-            if let Err(e) = crate::miner::start_ravencoin_mining().await {
+            if let Err(e) = crate::miner::start_ergo_mining() .await {
                 eprintln!("Failed to start Ravencoin mining: {}", e);
             }
         }
         "stop_ravencoin" => {
-            if let Err(e) = crate::miner::stop_ravencoin_mining().await {
+            if let Err(e) = crate::miner::stop_mining() .await {
                 eprintln!("Failed to stop Ravencoin mining: {}", e);
             }
         }
