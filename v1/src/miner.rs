@@ -1,21 +1,21 @@
-use std::process::Command;
+use std::process::{Command, Child};
 use std::error::Error;
+use crate::algo::AlgoConfig;
 
-pub async fn start_ergo_mining() -> Result<(), Box<dyn Error>> {
-    Command::new("lolMiner")
+pub async fn start_mining(config: AlgoConfig) -> Result<Child, Box<dyn Error>> {
+    let process = Command::new("lolMiner")
         .arg("--algo")
-        .arg("AUTOLYKOS2")
+        .arg(config.algorithm)
         .arg("--pool")
-        .arg("stratum+tcp://de.ergo.herominers.com:1180")
+        .arg(config.pool_url)
         .arg("--user")
-        .arg("9hwFm6uwUHT4vJUDg7KX8ucBtnPn817cEJrQ5qby292B9uQGWnN.MyWorker")  // Replace MyWorker with your worker name
+        .arg(config.user)
         .arg("--log")
-        .arg("logs/miner.log")
-        .spawn()?
-        .wait()?;
+        .arg(config.log_file)
+        .spawn()?;
     
-    println!("Ergo mining started.");
-    Ok(())
+    println!("Mining started with algorithm: {}", config.algorithm);
+    Ok(process)
 }
 
 pub async fn stop_mining() -> Result<(), Box<dyn Error>> {

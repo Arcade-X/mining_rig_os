@@ -6,6 +6,7 @@ mod gpu_collector;
 mod handlers;
 mod websocket_handler;
 mod miner;
+mod algo;
 
 #[tokio::main]
 async fn main() {
